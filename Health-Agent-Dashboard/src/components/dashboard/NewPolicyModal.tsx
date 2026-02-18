@@ -21,6 +21,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { useEffect, useState } from "react";
 import { Dayjs } from "dayjs";
 import { usePolicyStore } from "../../store/policyStore";
+import Toast from "../common/Toast";
 
 interface NewPolicyModalProps {
   open: boolean;
@@ -47,6 +48,9 @@ const initialFormState = {
 export default function NewPolicyModal({ open, onClose }: NewPolicyModalProps) {
   const [form, setForm] = useState(initialFormState);
 
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastOpen, setToastOpen] = useState(false);
+
   const setPolicies = usePolicyStore((state) => state.setPolicies);
   const addPolicy = usePolicyStore((state) => state.addPolicy);
 
@@ -68,7 +72,14 @@ export default function NewPolicyModal({ open, onClose }: NewPolicyModalProps) {
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) throw new Error("Failed to create policy");
+      const data = await res.json(); // 👈 always parse the response
+      console.log("Create Policy Response:", data);
+
+      if (!res.ok) {
+        setToastMessage(data.error || "Failed to create policy");
+        setToastOpen(true);
+        return;
+      }
 
       await fetchPolicies();
 
@@ -276,6 +287,13 @@ export default function NewPolicyModal({ open, onClose }: NewPolicyModalProps) {
             Create Policy
           </Button>
         </DialogActions>
+
+        <Toast
+          open={toastOpen}
+          message={toastMessage}
+          severity="error" // you can make this dynamic later
+          onClose={() => setToastOpen(false)}
+        />
       </Dialog>
     </LocalizationProvider>
   );
