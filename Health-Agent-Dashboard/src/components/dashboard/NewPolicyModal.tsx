@@ -220,6 +220,8 @@ export default function NewPolicyModal({ open, onClose }: NewPolicyModalProps) {
         return;
       }
 
+      fetchPolicies();
+
       // Optimistic update — no refetch needed
       addPolicy(data);
       handleClose();
@@ -467,20 +469,6 @@ export default function NewPolicyModal({ open, onClose }: NewPolicyModalProps) {
                 value={form.nomineeName}
                 onChange={(e) => handleChange("nomineeName", e.target.value)}
                 {...fieldProps("nomineeName")}
-              />
-            </Grid>
-
-            <Grid size={{ xs: 12, md: 6 }}>
-              <TextField
-                label="Agent ID"
-                fullWidth
-                disabled
-                value={form.agentId}
-                sx={{
-                  "& .MuiInputBase-root": {
-                    backgroundColor: "action.disabledBackground",
-                  },
-                }}
               />
             </Grid>
           </Grid>
