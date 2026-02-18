@@ -12,7 +12,6 @@ const REQUIRED_FIELDS = [
   "address",
   "planType",
   "panNumber",
-  "membersCount",
   "nomineeName",
   "premium",
   "policyStartDate",
@@ -21,10 +20,10 @@ const REQUIRED_FIELDS = [
 const INSERT_POLICY_QUERY = `
   INSERT INTO policies (
     customer_name, dob, gender, mobile, email, address,
-    plan_type, pan_number, members_count, medical_conditions,
+    plan_type, pan_number, medical_conditions,
     nominee_name, premium, policy_start_date, agent_id
   ) VALUES (
-    $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14
+    $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13
   ) RETURNING *`;
 
 const getMissingFields = (body) =>
@@ -49,7 +48,6 @@ router.post("/", async (req, res) => {
     address,
     planType,
     panNumber,
-    membersCount,
     medicalConditions,
     nomineeName,
     premium,
@@ -70,7 +68,6 @@ router.post("/", async (req, res) => {
     address,
     planType,
     panNumber,
-    membersCount,
     medicalConditions === "Yes",
     nomineeName,
     premium,

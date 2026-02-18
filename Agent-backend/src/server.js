@@ -33,7 +33,6 @@ const initDB = async () => {
 
         plan_type VARCHAR(100) NOT NULL,
         pan_number VARCHAR(12) NOT NULL,
-        members_count INTEGER NOT NULL,
 
         medical_conditions BOOLEAN NOT NULL,
         nominee_name TEXT NOT NULL,
@@ -45,9 +44,9 @@ const initDB = async () => {
       );
     `);
 
-    console.log("✅ policies table ready");
+    console.log("policies table ready");
   } catch (err) {
-    console.error("❌ Failed to create table:", err.message);
+    console.error("Failed to create table:", err.message);
     process.exit(1);
   }
 };
