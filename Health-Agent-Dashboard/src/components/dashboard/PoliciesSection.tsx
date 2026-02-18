@@ -148,17 +148,15 @@ export default function PoliciesSection() {
         })}
       </Grid>
 
-      {policies.length > 3 && (
-        <Box mt={3} display="flex" justifyContent="flex-end">
-          <Button
-            variant="text"
-            endIcon={<ArrowForward />}
-            onClick={() => navigate("/policies")}
-          >
-            View More
-          </Button>
-        </Box>
-      )}
+      <Box mt={3} display="flex" justifyContent="flex-end">
+        <Button
+          variant="text"
+          endIcon={<ArrowForward />}
+          onClick={() => navigate("/policies")}
+        >
+          View More
+        </Button>
+      </Box>
     </SectionCard>
   );
 }
