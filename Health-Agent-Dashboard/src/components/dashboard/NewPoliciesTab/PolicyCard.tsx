@@ -1,5 +1,6 @@
 import { Box, Chip, Paper, Stack, Typography } from "@mui/material";
 import { alpha } from "@mui/material/styles";
+import type { Policy } from "../../../types";
 
 const PAPER_SX = {
   p: 3,
@@ -18,17 +19,6 @@ const PLAN_STYLES: Record<string, { bg: string; color: string }> = {
 };
 
 const DEFAULT_PLAN_STYLE = { bg: "#E5E7EB", color: "#374151" };
-
-interface Policy {
-  id: string;
-  pan_number: string;
-  plan_type: string;
-  customer_name: string;
-  premium: number;
-  medical_conditions: boolean;
-  policy_start_date: string;
-  mobile: string;
-}
 
 export default function PolicyCard({
   pan_number,
