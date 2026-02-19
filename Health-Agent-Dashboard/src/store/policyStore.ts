@@ -1,22 +1,5 @@
 import { create } from "zustand";
-
-export interface Policy {
-  id: number;
-  customer_name: string;
-  dob: string;
-  gender: string;
-  mobile: string;
-  email: string;
-  address: string;
-  plan_type: string;
-  pan_number: string;
-  members_count: number;
-  medical_conditions: boolean;
-  nominee_name: string;
-  premium: string;
-  policy_start_date: string;
-  agent_id: string;
-}
+import type { Policy } from "../types";
 
 interface PolicyStore {
   policies: Policy[];

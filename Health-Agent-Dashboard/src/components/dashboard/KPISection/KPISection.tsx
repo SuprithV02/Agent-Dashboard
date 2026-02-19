@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
-import StatCard from "../common/StatCard";
-import { kpis } from "../../data/dashboardData";
+import StatCard from "./StatCard";
+import { kpis } from "../../../data/dashboardData";
 
 export default function KPISection() {
   return (

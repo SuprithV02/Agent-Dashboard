@@ -1,42 +1,10 @@
-export interface KPI {
-  title: string;
-  value: string;
-  change: string;
-  positive: boolean | null;
-}
-
-export interface PipelineStep {
-  label: string;
-  value: number;
-}
-
-export interface Renewal {
-  customer: string;
-  id: string;
-  type: string;
-  premium: string;
-  due: string;
-  status: string;
-  color: "success" | "warning" | "error";
-}
-
-export interface Claim {
-  id: string;
-  status: string;
-  color: "success" | "warning" | "default";
-  customer: string;
-}
-
-export interface SalesPlan {
-  name: string;
-  revenue: number;
-  progress: number; // percentage
-}
-
-export interface SalesPerformanceData {
-  monthlyGoal: number;
-  plans: SalesPlan[];
-}
+import type {
+  Claim,
+  KPI,
+  PipelineStep,
+  Renewal,
+  SalesPerformanceData,
+} from "../types";
 
 export const kpis: KPI[] = [
   { title: "Policies Sold", value: "142", change: "12%", positive: true },

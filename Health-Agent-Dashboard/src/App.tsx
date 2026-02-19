@@ -3,15 +3,15 @@ import theme from "./theme/theme";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Header from "./components/dashboard/Header";
-import KPISection from "./components/dashboard/KPISection";
-import PipelineSection from "./components/dashboard/PipelineSection";
-import RenewalsSection from "./components/dashboard/RenewalsSection";
-import SalesPerformanceSection from "./components/dashboard/SalesPerformanceSection";
-import ProTipSection from "./components/dashboard/ProTipSection";
-import ClaimsSection from "./components/dashboard/ClaimsSection";
-import PoliciesSection from "./components/dashboard/PoliciesSection";
-import AllPoliciesPage from "./components/Page/PoliciesPage";
+import Header from "./components/dashboard/HeaderTab/Header";
+import KPISection from "./components/dashboard/KPISection/KPISection";
+import PipelineSection from "./components/dashboard/PipeLinetab/PipelineSection";
+import RenewalsSection from "./components/dashboard/RenewalsTab/RenewalsSection";
+import SalesPerformanceSection from "./components/dashboard/SalesTab/SalesPerformanceSection";
+import ProTipSection from "./components/dashboard/SalesTab/ProTipSection";
+import ClaimsSection from "./components/dashboard/RecentClaimTab/ClaimsSection";
+import PoliciesSection from "./components/dashboard/NewPoliciesTab/PoliciesSection";
+import AllPoliciesPage from "./components/PoliciesDataGrid/PoliciesPage";
 
 export default function App() {
   return (

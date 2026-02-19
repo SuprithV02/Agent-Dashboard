@@ -1,14 +1,12 @@
-"use client";
-
-import { Snackbar, Alert } from "@mui/material";
-import { FC } from "react";
+import { Snackbar, Alert, type AlertColor } from "@mui/material";
+import { type FC } from "react";
 
 interface ToastProps {
   open: boolean;
   message: string;
-  severity?: "success" | "error" | "info" | "warning";
+  severity?: AlertColor;
   onClose: () => void;
-  duration?: number; // optional, default 4000ms
+  duration?: number;
 }
 
 const Toast: FC<ToastProps> = ({

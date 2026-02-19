@@ -1,5 +1,5 @@
 import { Paper, Stack, Typography } from "@mui/material";
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 
 interface Props {
   title?: string;
@@ -8,9 +8,11 @@ interface Props {
 }
 
 export default function SectionCard({ title, action, children }: Props) {
+  const hasHeader = Boolean(title || action);
+
   return (
     <Paper sx={{ p: 3 }}>
-      {(title || action) && (
+      {hasHeader && (
         <Stack direction="row" justifyContent="space-between" mb={3}>
           {title && <Typography fontWeight={600}>{title}</Typography>}
           {action}
